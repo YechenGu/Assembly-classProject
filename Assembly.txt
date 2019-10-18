@@ -64,6 +64,11 @@ R1 PROC
        ;确保输入不是回车
        AND AL,0FH
        MOV AH,0
+       CMP AL,'0'
+       JB LOPA1
+       CMP AL,'9'
+       JA LOPA1
+       ;确保输入合法
        ;处理数据，用到了AX,BX,DX,SI
        MOV BX,[SI]
        ADD BX,BX
